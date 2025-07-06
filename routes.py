@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
-from app.models.models import Scan, get_db
-from app.tasks.tasks import scan_site
+from appmodelsmodels import Scan, get_db
+from apptaskstasks import scan_site
+
 import uuid
 import time
 from sqlalchemy.orm import Session
