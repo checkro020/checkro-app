@@ -2,7 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from models import Scan
 from database import get_db
 
-from apptaskstasks import scan_site
+from apptasks import scan_site
+
 
 import uuid
 import time
