@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
-from appmodelsmodels import Scan, get_db
+from models import Scan
+from database import get_db
+
 from apptaskstasks import scan_site
 
 import uuid
