@@ -1,13 +1,12 @@
 from fastapi import FastAPI
 from routes import router
-from fastapi.middleware.cors import CORSMiddleware  # <— corrija aqui
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Adicionando o middleware correto
 app.add_middleware(
-    CORSMiddleware,           # <— use CORSMiddleware
-    allow_origins=["*"],      # ou ["https://seusite.com"] para restringir
+    CORSMiddleware,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
