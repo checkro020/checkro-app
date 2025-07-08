@@ -1,6 +1,5 @@
 from database import get_db
 from tasks import scan_site
-  
 
 import uuid
 import time
