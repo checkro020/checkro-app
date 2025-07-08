@@ -1,6 +1,6 @@
 from celery import Celery
-from app.models.models import SessionLocal, Issue, Scan
-from app.services.scanner import crawl_site, analyze_page
+from models import SessionLocal, Issue, Scan
+from scanner import crawl_site, analyze_page
 import os
 from dotenv import load_dotenv
 
@@ -20,6 +20,7 @@ def scan_site(scan_id: str, url: str):
         if scan and scan.status == "pending":
             pages = crawl_site(url)
             issues = []
+
             for page in pages:
                 page_issues = analyze_page(page)
                 for issue in page_issues:
@@ -40,6 +41,7 @@ def scan_site(scan_id: str, url: str):
                         "term_detected": issue["term"],
                         "suggestion": issue["suggestion"]
                     })
+
             db.commit()
             scan.status = "completed"
             db.commit()
