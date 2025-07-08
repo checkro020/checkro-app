@@ -18,4 +18,11 @@ class UrlRequest(BaseModel):
 @app.post("/analisar")
 async def analisar_url(payload: UrlRequest):
     url = payload.url
-    return {"mensagem": f"Analisando a URL: {url}"}
+    return {
+        "status": "ok",
+        "mensagem": f"Analisando a URL: {url}"
+    }
+
+@app.get("/")
+async def root():
+    return {"status": "API online"}
